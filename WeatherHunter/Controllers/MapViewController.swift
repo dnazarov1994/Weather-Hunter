@@ -16,12 +16,31 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var seeWeather: UIButton!
     
+    var pinAnnotation: MKPointAnnotation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didPress))
         mapView.addGestureRecognizer(gestureRecognizer)
         mapView.delegate = self
     }
+    
+    @IBAction func seeWeatherButton(_ sender: Any) {
+        performSegue(withIdentifier: "nextVC", sender: nil)
+    }
+    
+    func addAnnotation(to coordinate: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
+        pinAnnotation = annotation
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ShowWeatherViewController
+        vc.coordinates = pinAnnotation.coordinate
+    }
+
     
     @objc func didPress(gestureRecognizer: UIGestureRecognizer) {
         guard gestureRecognizer.state == .began else { return }
@@ -30,11 +49,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         addAnnotation(to: coordinate)
     }
 
-    func addAnnotation(to coordinate: CLLocationCoordinate2D) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         

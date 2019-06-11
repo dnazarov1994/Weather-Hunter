@@ -20,10 +20,18 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiR-lk-V5w">
                                 <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.94892794922523693" green="0.84682623626508169" blue="0.28675925424661164" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="rZu-dM-k9b"/>
                                 </constraints>
-                                <state key="normal" title="SEE WEATHER"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="SEE WEATHER">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.0098857111550000008" green="0.0051501961780000003" blue="0.047752849040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="seeWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yo2-qB-aAa"/>
+                                </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="na3-dX-CCG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="573"/>
@@ -41,11 +49,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Weather Hunter" id="QkX-39-l2k"/>
+                    <navigationItem key="navigationItem" title="Weather Hunter" id="QkX-39-l2k">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="logo" largeContentSizeImage="logo" id="g4M-gd-PZ8"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="na3-dX-CCG" id="mXq-wF-OYX"/>
                         <outlet property="seeWeather" destination="DiR-lk-V5w" id="wXe-xG-7GQ"/>
-                        <segue destination="Hds-bY-WLf" kind="show" id="PdL-Rf-Bvy"/>
+                        <segue destination="Hds-bY-WLf" kind="show" identifier="nextVC" id="PdL-Rf-Bvy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,6 +110,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5cA-cz-p8W"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="oFu-0f-dLy" id="4I2-lh-Ota"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cen-NM-Qih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,6 +126,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Fc-5M-aPW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.67867456319550679" green="0.9039498730964467" blue="0.55226853587704605" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -124,4 +142,7 @@
             <point key="canvasLocation" x="-110" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="1024" height="1024"/>
+    </resources>
 </document>

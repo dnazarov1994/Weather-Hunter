@@ -13,14 +13,16 @@ import CoreLocation
 class Client {
     
     enum Endpoints {
-        static let baseWeatherAPI = "api.openweathermap.org/data/2.5/"
+        private static let baseWeatherAPI = "https://api.openweathermap.org/data/2.5/"
+        private static let appId = "aae9d8527c7220a6af023144808d1300"
+        private static let keyAppId = "APPID=\(Endpoints.appId)"
         
         case getWeather(CLLocationCoordinate2D)
         
         var stringValue: String {
             switch self {
             case .getWeather(let coordinates):
-                return Endpoints.baseWeatherAPI + "weather?" + "lat=\(coordinates.latitude)&lon=\(coordinates.longitude)"
+                return Endpoints.baseWeatherAPI + "weather?" + Endpoints.keyAppId + "&lat=\(coordinates.latitude)&lon=\(coordinates.longitude)"
             }
         }
         
