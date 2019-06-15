@@ -18,6 +18,7 @@
 		6917960722B0277700184272 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917960622B0277700184272 /* WeatherResponse.swift */; };
 		6917960B22B02F6D00184272 /* TemperatureResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917960A22B02F6D00184272 /* TemperatureResponse.swift */; };
 		6917960D22B0305300184272 /* AreaInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917960C22B0305300184272 /* AreaInfoResponse.swift */; };
+		6917961022B3D3B500184272 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917960F22B3D3B500184272 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		6917960622B0277700184272 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		6917960A22B02F6D00184272 /* TemperatureResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureResponse.swift; sourceTree = "<group>"; };
 		6917960C22B0305300184272 /* AreaInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaInfoResponse.swift; sourceTree = "<group>"; };
+		6917960F22B3D3B500184272 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		691795E722AC12E100184272 /* WeatherHunter */ = {
 			isa = PBXGroup;
 			children = (
+				6917960E22B3D38900184272 /* View */,
 				6917960322AD67E500184272 /* Client */,
 				6917960022AC132900184272 /* Assets */,
 				691795FF22AC131900184272 /* Response */,
@@ -120,6 +123,14 @@
 				6917960422AD681000184272 /* Client.swift */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		6917960E22B3D38900184272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6917960F22B3D3B500184272 /* TableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +207,7 @@
 				691795F122AC12E100184272 /* WeatherHunter.xcdatamodeld in Sources */,
 				6917960722B0277700184272 /* WeatherResponse.swift in Sources */,
 				691795EB22AC12E100184272 /* MapViewController.swift in Sources */,
+				6917961022B3D3B500184272 /* TableViewCell.swift in Sources */,
 				6917960222AD5A5400184272 /* ShowWeatherViewController.swift in Sources */,
 				6917960522AD681000184272 /* Client.swift in Sources */,
 				6917960D22B0305300184272 /* AreaInfoResponse.swift in Sources */,

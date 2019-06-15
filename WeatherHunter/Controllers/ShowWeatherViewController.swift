@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 
-class ShowWeatherViewController: UIViewController {
+class ShowWeatherViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +31,14 @@ class ShowWeatherViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     
