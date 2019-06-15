@@ -19,6 +19,7 @@
 		6917960B22B02F6D00184272 /* TemperatureResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917960A22B02F6D00184272 /* TemperatureResponse.swift */; };
 		6917960D22B0305300184272 /* AreaInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917960C22B0305300184272 /* AreaInfoResponse.swift */; };
 		6917961022B3D3B500184272 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917960F22B3D3B500184272 /* TableViewCell.swift */; };
+		6917961222B4AD6000184272 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917961122B4AD6000184272 /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6917960A22B02F6D00184272 /* TemperatureResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureResponse.swift; sourceTree = "<group>"; };
 		6917960C22B0305300184272 /* AreaInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaInfoResponse.swift; sourceTree = "<group>"; };
 		6917960F22B3D3B500184272 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		6917961122B4AD6000184272 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				691795F422AC12E200184272 /* LaunchScreen.storyboard */,
 				691795F222AC12E200184272 /* Assets.xcassets */,
 				691795EC22AC12E100184272 /* Main.storyboard */,
+				6917961122B4AD6000184272 /* Error.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				6917960522AD681000184272 /* Client.swift in Sources */,
 				6917960D22B0305300184272 /* AreaInfoResponse.swift in Sources */,
 				691795E922AC12E100184272 /* AppDelegate.swift in Sources */,
+				6917961222B4AD6000184272 /* Error.swift in Sources */,
 				6917960B22B02F6D00184272 /* TemperatureResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

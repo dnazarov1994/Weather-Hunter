@@ -17,9 +17,23 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        startLoading()
+    }
+    
+    
     func fill(with info: AreaInfoResponse) {
         cityLabel.text = info.name
         weatherLabel.text = info.temperature.temperature.description
+        stopLoading()
+    }
+    
+    func startLoading() {
+        activityIndicator.startAnimating()
+    }
+    func stopLoading() {
+        activityIndicator.stopAnimating()
     }
     
 }
