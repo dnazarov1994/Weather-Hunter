@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct TemperatureResponse:Decodable {
-    var temperature:Double
+struct TemperatureResponse: Decodable {
+    var temperature: Double
     
     enum CodingKeys: String, CodingKey{
         case temperature = "temp"

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class TableViewCell: UITableViewCell {
   
@@ -17,21 +18,49 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    @IBOutlet weak var logoImage: UIImageView!
+    
+    @IBOutlet weak var connectionFailedLabel: UILabel!
+    
+    func set(coordinates: CLLocationCoordinate2D) {
+        connectionFailedLabel.isHidden = true
         startLoading()
+        Client.taskForGetRequest(url: Client.Endpoints.getWeather(coordinates).url , responseType: AreaInfoResponse.self) { (data, error) in
+            if let data = data {
+                self.fill(with: data)
+            }
+            if error != nil {
+                self.connectionFailedLabel.isHidden = false
+            }
+        }
     }
     
+    func show(logo: String) {
+        Client.downloadLogo(url: Client.Endpoints.downloadLogo(logo).url) { (image, error) in
+            self.logoImage.image = image
+        }
+    }
     
     func fill(with info: AreaInfoResponse) {
         cityLabel.text = info.name
-        weatherLabel.text = info.temperature.temperature.description
+        let temperature = convertToFahrenheit(kelvin: info.temperature.temperature)
+        weatherLabel.text = temperature.description + " F°"
+        if let weather = info.weather.first {
+            show(logo: weather.iconName)
+        }
         stopLoading()
+    }
+    
+    
+    func convertToFahrenheit(kelvin: Double) -> Int {
+        let temp = 1.8 * (kelvin - 273) + 32
+        return Int(temp.rounded())
     }
     
     func startLoading() {
         activityIndicator.startAnimating()
     }
+    
     func stopLoading() {
         activityIndicator.stopAnimating()
     }

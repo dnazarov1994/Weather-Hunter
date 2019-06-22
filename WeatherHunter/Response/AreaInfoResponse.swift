@@ -13,6 +13,7 @@ struct AreaInfoResponse: Decodable {
     var temperature: TemperatureResponse
     var name: String
     
+    
     enum CodingKeys: String,CodingKey {
         case weather = "weather"
         case temperature = "main"

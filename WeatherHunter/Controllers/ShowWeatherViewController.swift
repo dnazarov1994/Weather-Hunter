@@ -14,31 +14,29 @@ class ShowWeatherViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var coordinates: CLLocationCoordinate2D!
+    var coordinates: [CLLocationCoordinate2D] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getWeather()
+        tableView.dataSource = self
+        tableView.rowHeight = 90
+        setupNavigationItem()
     }
     
-    
-    func getWeather() {
-        Client.taskForGetRequest(url: Client.Endpoints.getWeather(coordinates).url , responseType: AreaInfoResponse.self) { (data, error) in
-            if let data = data {
-                
-            }
-            if let error = error {
-                print(error)
-            }
-        }
+    func setupNavigationItem() {
+        let view = Bundle.main.loadNibNamed("NavigationTitleView", owner: nil, options: nil)?.first as! UIView
+        self.navigationItem.titleView = view
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        cell.set(coordinates: coordinates[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return coordinates.count
     }
     
     
