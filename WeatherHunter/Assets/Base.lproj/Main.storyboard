@@ -24,7 +24,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="rZu-dM-k9b"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                 <state key="normal" title="SEE WEATHER">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" red="0.0098857111550000008" green="0.0051501961780000003" blue="0.047752849040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -58,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="134"/>
+            <point key="canvasLocation" x="1043.4782608695652" y="133.69565217391306"/>
         </scene>
         <!--Show Weather View Controller-->
         <scene sceneID="GxV-HQ-qNJ">
@@ -83,15 +83,15 @@
                                                     <rect key="frame" x="197" y="37" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lo8-44-2LK">
-                                                    <rect key="frame" x="30" y="21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="30" y="21" width="67" height="29"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-yB-ZE9">
-                                                    <rect key="frame" x="30" y="64.333333333333329" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="29.999999999999996" y="65.333333333333329" width="45.666666666666657" height="20"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                    <color key="textColor" red="0.036854501906319323" green="0.095201337788328566" blue="0.97162515862944165" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-aQ-stB">
@@ -121,6 +121,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Gbx-aQ-stB" secondAttribute="bottom" constant="12" id="xG1-Oj-8dx"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.60166664325953645" green="0.84857065478545224" blue="0.98171795685279184" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="activityIndicator" destination="V3E-Rm-XC1" id="IYT-fz-FcJ"/>
                                             <outlet property="cityLabel" destination="lo8-44-2LK" id="wPW-vc-Jf8"/>
@@ -147,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cen-NM-Qih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="134"/>
+            <point key="canvasLocation" x="1931.8840579710147" y="133.69565217391306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N0c-Ci-M85">
@@ -170,7 +171,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zu-a9-Hm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="134"/>
+            <point key="canvasLocation" x="122" y="134"/>
         </scene>
     </scenes>
 </document>

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
@@ -20,6 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadPins()
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didPress))
         mapView.addGestureRecognizer(gestureRecognizer)
         mapView.delegate = self
@@ -27,7 +29,44 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         setupNavigationItem()
     }
     
-    func savePin(
+    func loadPins() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Pins")
+        var pins: [NSManagedObject] = []
+        do {
+            pins = try managedContext.fetch(request)
+        } catch {
+            show(error: error)
+        }
+        pins.forEach { (object) in
+            if let longitude = object.value(forKey: "longitude") as? Double,
+                let latitude = object.value(forKey: "latitude") as? Double {
+                let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                addAnnotation(to: coordinate)
+            }
+        }
+    }
+    
+    func savePin(coordinate: CLLocationCoordinate2D) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Pins", in: managedContext)!
+        let pin = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        pin.setValue(coordinate.latitude, forKey: "latitude")
+        pin.setValue(coordinate.longitude, forKey: "longitude")
+        do {
+            try managedContext.save()
+        } catch {
+            show(error: error)
+        }
+    }
+    
     
     func setupNavigationItem() {
         let view = Bundle.main.loadNibNamed("NavigationTitleView", owner: nil, options: nil)?.first as! UIView
@@ -57,6 +96,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         guard gestureRecognizer.state == .began else { return }
         let touchPoint = gestureRecognizer.location(in: mapView)
         let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        savePin(coordinate: coordinate)
         addAnnotation(to: coordinate)
     }
 
