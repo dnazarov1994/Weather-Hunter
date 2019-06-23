@@ -1,5 +1,5 @@
 # Weather Hunter
-The Weather Hunter app allows user to see current weather anywhere in the World just by tapping a map!
+The Weather Hunter app allows user to see current weather **anywhere in the World** just by tapping a map!
 
 ### Architecture
 The app has two view controller scenes:
