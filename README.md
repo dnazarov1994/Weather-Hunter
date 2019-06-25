@@ -10,7 +10,7 @@ The app has two view controller scenes:
 When user opens the Weather Hunter app, the Map View controller appears. User can place a pin anywhere on the map by tapping and holding the screen. When user placed a pin, the "SEE WEATHER" button is enabled. By tapping this button the Table View controller appears. Here user can see the location name (if it exists), current temperature in Fahrenheit and logo with current weather conditions of the coordinates where pins were placed on the Map View. The weather information is displayed in the same sequence as the pins were placed on the Map. By selecting a pin on the map, the "DELETE PIN" button is enabled. By tapping this button, the pin is removing from the app. All pins are saved in the same locations after the app is reopened. 
 
 ### Data from network resources
-The Weather Hunter app using data from the OpenWeatherMap API
+The Weather Hunter app using data from the OpenWeatherMap API: "https://api.openweathermap.org/data"
 
 ### Error handling
 If the submission fails to post the data to the server, then the user see an alert with an error message describing the failure. 
