@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weatherhun1" translatesAutoresizingMaskIntoConstraints="NO" id="ixE-NQ-N0H">
-                    <rect key="frame" x="159" y="5" width="57" height="57"/>
+                    <rect key="frame" x="155.5" y="1.5" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ixE-NQ-N0H" secondAttribute="height" id="q7z-Os-uiD"/>
                     </constraints>
@@ -27,7 +27,7 @@
             <constraints>
                 <constraint firstItem="ixE-NQ-N0H" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8S1-g8-RIx"/>
                 <constraint firstItem="ixE-NQ-N0H" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="JJq-eQ-RZm"/>
-                <constraint firstItem="ixE-NQ-N0H" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.85" id="wy8-Sg-FPu"/>
+                <constraint firstItem="ixE-NQ-N0H" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.95" id="wy8-Sg-FPu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

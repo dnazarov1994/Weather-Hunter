@@ -15,18 +15,51 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var seeWeather: UIButton!
+    @IBOutlet weak var actionButton: UIButton!
     
     var coordinates:[CLLocationCoordinate2D] = []
     
+    var action: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        actionButton.isEnabled = false
         loadPins()
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didPress))
         mapView.addGestureRecognizer(gestureRecognizer)
         mapView.delegate = self
-        seeWeather.isEnabled = false
         setupNavigationItem()
+        checkFirstLaunch()
+    }
+    
+    func checkFirstLaunch() {
+        let userDefaults = UserDefaults.standard
+        let key = "isNotFirstLaunch"
+        if !userDefaults.bool(forKey: key) {
+            performSegue(withIdentifier: "showInfo", sender: nil)
+            userDefaults.set(true, forKey: key)
+        }
+        
+    }
+    
+    func updateButtonState() {
+        if mapView.selectedAnnotations.isEmpty {
+            actionButton.isEnabled = true
+            actionButton.setTitle("SEE WEATHER", for: .normal)
+            action = seeWeather
+        } else {
+            actionButton.isEnabled = true
+            actionButton.setTitle("DELETE PIN", for: .normal)
+            action = deletePins
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        updateButtonState()
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        updateButtonState()
     }
     
     func loadPins() {
@@ -74,7 +107,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func seeWeatherButton(_ sender: Any) {
-        performSegue(withIdentifier: "nextVC", sender: nil)
+        action?()
     }
     
     func addAnnotation(to coordinate: CLLocationCoordinate2D) {
@@ -82,13 +115,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
         coordinates.append(coordinate)
-        seeWeather.isEnabled = true
+        actionButton.isEnabled = true
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ShowWeatherViewController
-        vc.coordinates = coordinates
+        if let vc = segue.destination as? ShowWeatherViewController {
+            vc.coordinates = coordinates
+        }
     }
 
     
@@ -99,15 +133,31 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         savePin(coordinate: coordinate)
         addAnnotation(to: coordinate)
     }
+    
+    func deletePins() {
+        let pins = mapView.selectedAnnotations
+        mapView.removeAnnotations(pins)
+        coordinates = coordinates.filter { (coordinate) -> Bool in
+            return !pins.contains(where: { (annotation) -> Bool in
+                return annotation.coordinate.longitude == coordinate.longitude && annotation.coordinate.latitude == coordinate.latitude
+            })
+        }
+        updateButtonState()
+    }
+    
+    func seeWeather() {
+        performSegue(withIdentifier: "nextVC", sender: nil)
+    }
 
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
+    
         let reuseId = "pin"
-        
+
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        
+
         if pinView == nil {
+
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
             pinView!.pinTintColor = .red
@@ -116,7 +166,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         else {
             pinView!.annotation = annotation
         }
-        
+
         return pinView
     }
 

@@ -26,8 +26,8 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                 <state key="normal" title="SEE WEATHER">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.0098857111550000008" green="0.0051501961780000003" blue="0.047752849040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.27701989149079109" green="0.27701989149079109" blue="0.27701989149079109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleShadowColor" red="0.024824405984406252" green="0.047752849040000003" blue="0.026443773206042732" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="seeWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yo2-qB-aAa"/>
@@ -51,14 +51,30 @@
                     </view>
                     <navigationItem key="navigationItem" id="QkX-39-l2k"/>
                     <connections>
+                        <outlet property="actionButton" destination="DiR-lk-V5w" id="wXe-xG-7GQ"/>
                         <outlet property="mapView" destination="na3-dX-CCG" id="mXq-wF-OYX"/>
-                        <outlet property="seeWeather" destination="DiR-lk-V5w" id="wXe-xG-7GQ"/>
                         <segue destination="Hds-bY-WLf" kind="show" identifier="nextVC" id="PdL-Rf-Bvy"/>
+                        <segue destination="7hS-tl-9FO" kind="show" identifier="showInfo" id="yws-IU-RvA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1043.4782608695652" y="133.69565217391306"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mpL-Wz-IJT">
+            <objects>
+                <viewController id="7hS-tl-9FO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5F1-Hq-1TM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1g2-ou-UYl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CFd-tB-dnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="975"/>
         </scene>
         <!--Show Weather View Controller-->
         <scene sceneID="GxV-HQ-qNJ">
@@ -83,7 +99,7 @@
                                                     <rect key="frame" x="197" y="37" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lo8-44-2LK">
-                                                    <rect key="frame" x="30" y="21" width="67" height="29"/>
+                                                    <rect key="frame" x="30" y="21" width="286.33333333333331" height="29"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -91,7 +107,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-yB-ZE9">
                                                     <rect key="frame" x="29.999999999999996" y="65.333333333333329" width="45.666666666666657" height="20"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                    <color key="textColor" red="0.036854501906319323" green="0.095201337788328566" blue="0.97162515862944165" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" red="0.26222769605931895" green="0.26222769605931895" blue="0.26222769605931895" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-aQ-stB">
@@ -115,6 +131,7 @@
                                                 <constraint firstItem="V3E-Rm-XC1" firstAttribute="centerY" secondItem="QdO-5Y-M5n" secondAttribute="centerY" id="Zlm-n3-hde"/>
                                                 <constraint firstItem="Gbx-aQ-stB" firstAttribute="top" secondItem="QdO-5Y-M5n" secondAttribute="top" constant="12" id="ghM-7O-ctC"/>
                                                 <constraint firstItem="nuL-YF-Eul" firstAttribute="centerY" secondItem="QdO-5Y-M5n" secondAttribute="centerY" id="jiy-rm-Em1"/>
+                                                <constraint firstItem="Gbx-aQ-stB" firstAttribute="leading" secondItem="lo8-44-2LK" secondAttribute="trailing" constant="8" id="jlk-Z6-s5H"/>
                                                 <constraint firstItem="lo8-44-2LK" firstAttribute="top" secondItem="QdO-5Y-M5n" secondAttribute="topMargin" constant="10" id="mmu-Pa-eK1"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gbx-aQ-stB" secondAttribute="trailing" constant="20" id="qTM-Na-0bQ"/>
                                                 <constraint firstItem="lo8-44-2LK" firstAttribute="leading" secondItem="QdO-5Y-M5n" secondAttribute="leading" constant="30" id="svD-mp-xH9"/>
@@ -158,7 +175,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Fc-5M-aPW">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.9031466632877776" green="0.94420872333691208" blue="0.93343850293401898" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.89988499365482233" green="0.89988499365482233" blue="0.89988499365482233" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
