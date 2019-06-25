@@ -13,4 +13,5 @@ When user opens the Weather Hunter app, the Map View controller appears. User ca
 The Weather Hunter app using data from the OpenWeatherMap API
 
 ### Error handling
+If the submission fails to post the data to the server, then the user see an alert with an error message describing the failure. 
 
