@@ -9,7 +9,8 @@ The Weather Hunter app allows the user to see current weather **anywhere in the 
 
 ## App Implementation
 The app has two view controller scenes:
-- Map View: Allows the user to place pins on the Map
+- Map View: Allows the user to place pins on the Map.
+
 - Table View: Allows the user to see the weather information of the location associated with the latitude and longitude of the pin
 
 ## App Functionality 
