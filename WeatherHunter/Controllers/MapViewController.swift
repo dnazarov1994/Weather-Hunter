@@ -19,6 +19,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     var coordinates:[CLLocationCoordinate2D] = []
     
+    var objects: [NSManagedObject] = []
+    
     var action: (() -> Void)?
     
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.addGestureRecognizer(gestureRecognizer)
         mapView.delegate = self
         setupNavigationItem()
+        action = seeWeather
         checkFirstLaunch()
     }
     
@@ -74,6 +77,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         } catch {
             show(error: error)
         }
+        objects.append(contentsOf: pins)
         pins.forEach { (object) in
             if let longitude = object.value(forKey: "longitude") as? Double,
                 let latitude = object.value(forKey: "latitude") as? Double {
@@ -90,7 +94,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Pins", in: managedContext)!
         let pin = NSManagedObject(entity: entity, insertInto: managedContext)
-        
+        objects.append(pin)
         pin.setValue(coordinate.latitude, forKey: "latitude")
         pin.setValue(coordinate.longitude, forKey: "longitude")
         do {
@@ -99,7 +103,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             show(error: error)
         }
     }
-    
     
     func setupNavigationItem() {
         let view = Bundle.main.loadNibNamed("NavigationTitleView", owner: nil, options: nil)?.first as! UIView
@@ -135,13 +138,37 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func deletePins() {
-        let pins = mapView.selectedAnnotations
-        mapView.removeAnnotations(pins)
-        coordinates = coordinates.filter { (coordinate) -> Bool in
-            return !pins.contains(where: { (annotation) -> Bool in
-                return annotation.coordinate.longitude == coordinate.longitude && annotation.coordinate.latitude == coordinate.latitude
-            })
+
+        guard let pin = mapView.selectedAnnotations.first else {
+            updateButtonState()
+            return
         }
+        mapView.removeAnnotation(pin)
+        coordinates = coordinates.filter { (coordinate) -> Bool in
+            return pin.coordinate.longitude != coordinate.longitude && pin.coordinate.latitude != coordinate.latitude
+        }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let context = appDelegate.persistentContainer.viewContext
+        var managedObject: NSManagedObject?
+        objects.forEach { (object) in
+            if let longitude = object.value(forKey: "longitude") as? Double,
+                let latitude = object.value(forKey: "latitude") as? Double,
+                pin.coordinate.latitude == latitude && pin.coordinate.longitude == longitude {
+                managedObject = object
+            }
+        }
+        guard let object = managedObject else {
+            updateButtonState()
+            return
+        }
+        context.delete(object)
+        try? context.save()
+        if let index = objects.firstIndex(of: object) {
+            objects.remove(at: index)
+        }
+        
         updateButtonState()
     }
     

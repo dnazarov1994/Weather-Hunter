@@ -68,13 +68,29 @@
                     <view key="view" contentMode="scaleToFill" id="5F1-Hq-1TM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qh-aW-tHS">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Welcome to The Weather Hunter! The app where you can see current weather anywhere in the World just by tapping a Map! You don't need to know exactly the name of the city or town!  Just by placing a pin on the screen, you allowed seeing the current temperature, weather conditions, and location name. You can save pins on the map and check the weather anytime you need it! This app is very helpful for your road trip or family vacation in the new location!</string>
+                                <color key="textColor" red="0.22617915545018197" green="0.22617915545018197" blue="0.22617915545018197" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1qh-aW-tHS" firstAttribute="leading" secondItem="1g2-ou-UYl" secondAttribute="leading" id="B0p-No-2ea"/>
+                            <constraint firstItem="1g2-ou-UYl" firstAttribute="trailing" secondItem="1qh-aW-tHS" secondAttribute="trailing" id="J16-Qe-rdV"/>
+                            <constraint firstItem="1g2-ou-UYl" firstAttribute="bottom" secondItem="1qh-aW-tHS" secondAttribute="bottom" id="LUR-1w-a1n"/>
+                            <constraint firstItem="1qh-aW-tHS" firstAttribute="top" secondItem="1g2-ou-UYl" secondAttribute="top" id="iIu-jc-GK3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1g2-ou-UYl"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFd-tB-dnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="975"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="870.6521739130435"/>
         </scene>
         <!--Show Weather View Controller-->
         <scene sceneID="GxV-HQ-qNJ">
@@ -111,7 +127,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-aQ-stB">
-                                                    <rect key="frame" x="324.33333333333331" y="12" width="69.666666666666686" height="69.666666666666671"/>
+                                                    <rect key="frame" x="324.33333333333337" y="12" width="69.666666666666686" height="69.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Gbx-aQ-stB" secondAttribute="height" id="Wkp-SL-hcn"/>
                                                     </constraints>
