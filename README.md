@@ -23,7 +23,8 @@ The Weather Hunter app using data from the OpenWeatherMap API: "https://api.open
 ## Error handling
 If the submission fails to post the data to the server, then the user sees an alert with an error message describing the failure. 
 
-### Requirements
+
+## Requirements
 
 Xcode 9.2
 Swift 4.0
