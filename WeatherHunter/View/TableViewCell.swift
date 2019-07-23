@@ -14,13 +14,16 @@ class TableViewCell: UITableViewCell {
   
     @IBOutlet weak var cityLabel: UILabel!
     
-    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var fahrenheitLabel: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var logoImage: UIImageView!
     
     @IBOutlet weak var connectionFailedLabel: UILabel!
+    
+    @IBOutlet weak var celciusLabel: UILabel!
+    
     
     func set(coordinates: CLLocationCoordinate2D) {
         connectionFailedLabel.isHidden = true
@@ -43,14 +46,20 @@ class TableViewCell: UITableViewCell {
     
     func fill(with info: AreaInfoResponse) {
         cityLabel.text = info.name
+        let temp = converttoCelcius(kelvin: info.temperature.temperature)
+        celciusLabel.text = temp.description + " C°"
         let temperature = convertToFahrenheit(kelvin: info.temperature.temperature)
-        weatherLabel.text = temperature.description + " F°"
+        fahrenheitLabel.text = temperature.description + " F°"
         if let weather = info.weather.first {
             show(logo: weather.iconName)
         }
         stopLoading()
     }
     
+    func converttoCelcius(kelvin: Double) -> Int {
+        let temp = kelvin - 273.15
+        return Int(temp.rounded())
+    }
     
     func convertToFahrenheit(kelvin: Double) -> Int {
         let temp = 1.8 * (kelvin - 273) + 32

@@ -120,14 +120,14 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-yB-ZE9">
-                                                    <rect key="frame" x="29.999999999999996" y="65.333333333333329" width="45.666666666666657" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-yB-ZE9">
+                                                    <rect key="frame" x="30" y="65.333333333333329" width="45.666666666666657" height="20"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                                     <color key="textColor" red="0.26222769605931895" green="0.26222769605931895" blue="0.26222769605931895" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-aQ-stB">
-                                                    <rect key="frame" x="324.33333333333337" y="12" width="69.666666666666686" height="69.666666666666671"/>
+                                                    <rect key="frame" x="324.33333333333331" y="12" width="69.666666666666686" height="69.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Gbx-aQ-stB" secondAttribute="height" id="Wkp-SL-hcn"/>
                                                     </constraints>
@@ -138,17 +138,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fI-Yx-MgS">
+                                                    <rect key="frame" x="92" y="64" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                    <color key="textColor" red="0.22617915550000001" green="0.22617915550000001" blue="0.22617915550000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="b4c-yB-ZE9" firstAttribute="leading" secondItem="QdO-5Y-M5n" secondAttribute="leading" constant="30" id="8An-jc-aLr"/>
                                                 <constraint firstItem="V3E-Rm-XC1" firstAttribute="centerX" secondItem="QdO-5Y-M5n" secondAttribute="centerX" id="BbM-sA-Vpz"/>
+                                                <constraint firstItem="9fI-Yx-MgS" firstAttribute="top" secondItem="nuL-YF-Eul" secondAttribute="bottom" constant="6.6699999999999999" id="C9B-g3-dPj"/>
                                                 <constraint firstAttribute="bottom" secondItem="b4c-yB-ZE9" secondAttribute="bottom" constant="8.5" id="Fs3-MD-Kcg"/>
+                                                <constraint firstAttribute="bottom" secondItem="9fI-Yx-MgS" secondAttribute="bottom" constant="8.6699999999999999" id="JhH-O3-621"/>
                                                 <constraint firstItem="nuL-YF-Eul" firstAttribute="centerX" secondItem="QdO-5Y-M5n" secondAttribute="centerX" id="WYB-7p-Wf9"/>
                                                 <constraint firstItem="V3E-Rm-XC1" firstAttribute="centerY" secondItem="QdO-5Y-M5n" secondAttribute="centerY" id="Zlm-n3-hde"/>
+                                                <constraint firstItem="Gbx-aQ-stB" firstAttribute="leading" secondItem="9fI-Yx-MgS" secondAttribute="trailing" constant="190.33000000000001" id="bvG-JK-g5d"/>
                                                 <constraint firstItem="Gbx-aQ-stB" firstAttribute="top" secondItem="QdO-5Y-M5n" secondAttribute="top" constant="12" id="ghM-7O-ctC"/>
                                                 <constraint firstItem="nuL-YF-Eul" firstAttribute="centerY" secondItem="QdO-5Y-M5n" secondAttribute="centerY" id="jiy-rm-Em1"/>
                                                 <constraint firstItem="Gbx-aQ-stB" firstAttribute="leading" secondItem="lo8-44-2LK" secondAttribute="trailing" constant="8" id="jlk-Z6-s5H"/>
                                                 <constraint firstItem="lo8-44-2LK" firstAttribute="top" secondItem="QdO-5Y-M5n" secondAttribute="topMargin" constant="10" id="mmu-Pa-eK1"/>
+                                                <constraint firstItem="9fI-Yx-MgS" firstAttribute="leading" secondItem="b4c-yB-ZE9" secondAttribute="trailing" constant="16.329999999999998" id="ncS-bz-NLd"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gbx-aQ-stB" secondAttribute="trailing" constant="20" id="qTM-Na-0bQ"/>
                                                 <constraint firstItem="lo8-44-2LK" firstAttribute="leading" secondItem="QdO-5Y-M5n" secondAttribute="leading" constant="30" id="svD-mp-xH9"/>
                                                 <constraint firstAttribute="bottom" secondItem="Gbx-aQ-stB" secondAttribute="bottom" constant="12" id="xG1-Oj-8dx"/>
@@ -157,10 +167,11 @@
                                         <color key="backgroundColor" red="0.60166664325953645" green="0.84857065478545224" blue="0.98171795685279184" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="activityIndicator" destination="V3E-Rm-XC1" id="IYT-fz-FcJ"/>
+                                            <outlet property="celciusLabel" destination="9fI-Yx-MgS" id="tii-u5-1Ro"/>
                                             <outlet property="cityLabel" destination="lo8-44-2LK" id="wPW-vc-Jf8"/>
                                             <outlet property="connectionFailedLabel" destination="nuL-YF-Eul" id="gPQ-vg-It1"/>
+                                            <outlet property="fahrenheitLabel" destination="b4c-yB-ZE9" id="TSH-1S-9MD"/>
                                             <outlet property="logoImage" destination="Gbx-aQ-stB" id="O56-Ec-0in"/>
-                                            <outlet property="weatherLabel" destination="b4c-yB-ZE9" id="TSH-1S-9MD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -181,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cen-NM-Qih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1931.8840579710147" y="133.69565217391306"/>
+            <point key="canvasLocation" x="2299" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N0c-Ci-M85">
