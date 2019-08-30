@@ -77,5 +77,5 @@ The Weather Hunter app using data from the OpenWeatherMap API:
 ## Requirements
 
 - Xcode 9.2
-- Swift 4.0
+- Swift 4.2
 
