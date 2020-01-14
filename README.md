@@ -1,4 +1,4 @@
-# Weather Huntern
+# Weather Hunter
 The Weather Hunter app allows the user to see current weather **anywhere in the World** just by tapping a map! You don't need to know exactly the name of the city or town! This app is very helpful for your road trip or family vacation in the new location!
 
 
